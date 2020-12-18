@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+    <link href="https://greenlight.ink/assets/css/libs/spectrum/spectrum.css" rel="stylesheet">
+    <link href="css/include_style.css" media="all" rel="stylesheet" type="text/css" />
+
+<!-- ===================== New Style ======================= -->
+
+    <link href="css/all.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/media.css" media="all" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/spectrum.js"></script>
+    <script type="text/javascript" src="js/jquery.spectrum-fi.js"></script>
+    <link href="css/spectrum.css" media="all" rel="stylesheet" type="text/css" />
+
+<!-- ===================== end New Style ======================= -->
+
+
+    <script src="https://greenlight.ink/assets/basetheme-design/js/jquery/jquery-3.1.1.min.js?v=1.1.7"></script>
+    <script src="https://greenlight.ink/assets/basetheme-design/js/jquery/plugins/sortable/jquery-ui-sortable.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/bgset/ls.bgset.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes.min.js"></script>
+    <script defer="" src="https://greenlight.ink/assets/js/libs/spectrum/spectrum.js"></script>
+    <link rel="stylesheet" href="https://greenlight.ink/assets/css/libs/spectrum/spectrum.css">
+    <script>
+      var global = {
+        siteUrl: 'https://greenlight.ink/',
+        baseUrl: '/',
+        assetsUrl: '/assets/',
+        cultureKey: 'ru',
+        galleryTree: '',  // json массив маппинга альбомов в галереи для построения дерева альбомов в js
+        ajaxHandlerUrl: 'ajax/handler',
+        validationMessages: {
+          name: 'Будьте добры, введите ваше имя.',
+          galleryName: 'Введите название галереи.',
+          phone: 'Вы забыли оставить ваш номер телефона.',
+          email: 'Адрес электронной почты имеет формат site@mail.com.',
+          emailRequired: 'Адрес электронной почты имеет формат site@mail.com.',
+          passwordRequired: 'Введите ваш пароль',
+          repasswordRequired: 'Повторите ваш пароль',
+          repassEqual: 'Повторно введенный пароль не совпадает',
+          <!--reEmailEqual: 'Повторно введенный e-mail не совпадает',-->
+          newpasswordRequired: 'Введите новый пароль',
+          text: 'Здесь должно быть ваше сообщение.'
+        },
+        resourceLinks: {
+          'dashboard': 'https://greenlight.ink/dashboard',
+          'index': 'https://greenlight.ink/',
+          'gallerySettings': 'https://greenlight.ink/dashboard/gallerySettings',
+          'gallery': 'https://greenlight.ink/dashboard/gallery',
+          'upload': 'https://greenlight.ink/dashboard/gallery/upload',
+          'galleries': 'https://greenlight.ink/dashboard/galleries',
+          'watermarks': 'https://greenlight.ink/dashboard/watermarks',
+          'watermark': 'https://greenlight.ink/dashboard/watermarks/watermark',
+          'contacts': 'https://greenlight.ink/dashboard/contacts',
+          'plans' : 'https://greenlight.ink/dashboard/plans',
+        },
+        ajax: {
+          checkAuth: 'ajax/check-auth',
+          logout: 'ajax/logout',
+          getGalleries: 'ajax/get-galleries',
+          removeGalleries: 'ajax/remove-galleries',
+          upload: 'ajax/upload',
+          getGalleryPhotos: 'ajax/get-gallery-photos',
+          movePhotos: 'ajax/move-photos',
+          galleryActions: 'ajax/gallery-actions',
+          updateWatermark: 'ajax/update-watermark',
+          removePhotos: 'ajax/remove-photos',
+          deleteWatermark: 'ajax/delete-watermark',
+          saveStudioSettings: 'ajax/save-studio-settings'
+        },
+        popupMessages: {
+          createContactSuccess: 'Контакт успешно создан',
+          createContactFail: 'Ошибка при создании контакта',
+          saveStudioSettingsSuccess: 'Настройки успешно сохранены',
+          saveStudioSettingsFail: 'Ошибка при сохранении настроек',
+          cardSavedSuccess: 'Информация о карте успешно изменена',
+        },
+        options: {
+          galleriesStep: '4'
+        },
+        lexicon: {
+          month: 'месяц',
+          year: 'год',
+        },
+      };
+      var jquerySource = '';
+      var jsDeferred = '/assets/basetheme-design/minDashboard/scripts_1570527752.pack.js';
+
+      var cssDeferred = '/assets/basetheme-design/minDashboard/styles_1568624722.pack.css';
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <header class="header" id="header">
+        <nav class="header__top-nav" id="headerTopNavAuth">
+            <button class="header__top-btn" id="headerTopBtnAuth" type="button"><span></span><span></span><span></span>
+            </button>
+        </nav>
+        <nav class="header-cabinet" id="cabinet"><span class="cabinet__accaunt" id="cabinet__accaunt-btn"
+                                                       rel="nofollow"></span>
+            <nav class="header__menu header__menu--accaunt" id="accaunt__menu">
+                <ul class="header__menu-list">
+                    <li><a href="https://greenlight.ink/dashboard/personalarea/account">Параметры аккаунта</a></li>
+                    <li><a href="https://greenlight.ink/dashboard/plans">Изменение плана</a></li>
+                    <li><a href="https://greenlight.ink/dashboard/personalarea/promocodes">Промокоды</a></li>
+                    <li><a href="https://greenlight.ink/dashboard/personalarea/referal">Реферальная система</a></li>
+                    <li><a class="alert" href="#" id="logout">Выйти</a></li>
+                </ul>
+            </nav>
+            <span class="cabinet__bell" id="cabinet__notofication-btn" rel="nofollow"><span>22</span></span>
+            <article class="widgets widgets-notice widgets--border unread-notice" id="cabinet__notification">
+                <div class="widgets-open"><a href="https://greenlight.ink/dashboard/studio-list-notification"
+                                             rel="nofollow">Открыть все</a></div>
+                <div class="widgets-info empty-message">
+                    <div class="info-table__body">Новых уведомлений нет</div>
+                </div>
+
+            </article>
+            <nav class="header__menu" id="header__menu">
+                <ul class="header__menu-list">
+                    <li class="header__menu-ttl"><a class="tarif_link" href="https://greenlight.ink/dashboard/plans">Тариф
+                        до: 26.09.20</a></li>
+                    <li class="header__menu-ttl header__cash">
+                    <span class="header__cash-wrap">На счету:
+                        <span class="header__cash-value" id="header__cash-value"> 0 руб.</span>
+                        <span class="header__cash-btn btn" id="withdrawalOffunds" rel="nofollow">Вывести средства</span>
+                    </span>
+                    </li>
+                    <li class="header__menu-ttl"><span>Фото</span>
+                        <ul>
+                            <li><a class="active" href="https://greenlight.ink/dashboard/galleries">Галереи</a></li>
+                            <li><a class="active" href="https://greenlight.ink/dashboard/watermarks">Водяной знак</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__menu-ttl"><span>Студия</span>
+                        <ul>
+                            <li><a href="https://greenlight.ink/dashboard/contacts">Контакты</a></li>
+                            <li><a href="https://greenlight.ink/dashboard/studio-list-orders">Заказы студии</a></li>
+                            <li><a href="https://greenlight.ink/dashboard/studioSettings">Настройки студии</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a class="cabinet__logo gr" href="https://greenlight.ink/dashboard" rel="nofollow">Pavel Veter<span
+                    class="cabinet__logo-ico"
+                    style="background-image: url(https://api.eric.s3storage.ru/greenlight-bucket/userfiles/21/logo/veter.png?AWSAccessKeyId=00ca2066d7d0b3972460&amp;Expires=1652625761&amp;Signature=UsDF0g5C58Yt7AWk6kvCg6lxWxQ%3D); background-size: cover; background-repeat: no-repeat; background-position: center;"></span><span>greenlight.ink</span></a>
+        </nav>
+
+        <div class="modal modal--transparent" id="withdrawalOffundsPopup">
+            <div class="popup popup--center active"><a class="close close--small" href="#" id="closeCreatePromoCodePupup"
+                                                       rel="nofollow"></a>
+                <h2>Вывод средств</h2>
+                <form id="withdrawalForm">
+                    <div class="form-group">
+                        <input class="form-control" id="withdrawalOffundsInput" name="value" placeholder="Сумма"
+                               type="text">
+                    </div>
+                    <button class="btn" name="btn" type="submit">ОК</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================= NEW Markup ============================== -->
+
+    <div class="container">
+        <div class="heading-wrap">
+            <div class="heading heading--setting-page heading--studio-page head-panel-mail">
+                <div class="panel-mail">
+                    <a href="#">Отправленные Письма</a>
+                    <a href="#" class="active">Шаблоны</a>
+                    <a href="#">Автоматизация</a>
+                </div>
+                <div class="email-buttons d-none d-md-block">
+                    <a class="btn btn--small save-watermark" href="#">Добавить шаблон</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form action="#" class="email-search">
+            <input type="text" placeholder="Начните вводить название шаблона">
+            <input type="submit">
+        </form>
+        <table class="table-email table-sorting">
+            <thead>
+            <tr>
+                <th>Название</th>
+                <th class="th-sort"><span>Дата изменения</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="#">Галерея активна</a></td>
+                <td>14-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Галерея будет удалена через 5 дней</a></td>
+                <td>11-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Галерея будет удалена через 5 дней</a></td>
+                <td>10-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Положили в корзину</a></td>
+                <td>10-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Добавили в избранное</a></td>
+                <td>9-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Галерея активна</a></td>
+                <td>1-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table-email table-email-mobile table-sorting">
+            <thead>
+            <tr>
+                <th>Название</th>
+                <th class="th-sort"><span>Дата изменения</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="#">Галерея активна</a></td>
+                <td>1-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Галерея активна</a></td>
+                <td>1-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Галерея активна</a></td>
+                <td>1-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Галерея активна</a></td>
+                <td>1-10-19 <a href="#" class="delete">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ========================= end NEW Markup ============================== -->
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="cpr">
+                <div class="cpr__dt"><span>© 2016 - 2019. <span class="gr">Greenlight</span> </span>  Персональный сервис для фотографов</div>
+            </div>
+        </div>
+    </footer>
+</div>
+<link href="https://greenlight.ink/assets/basetheme-design/minDashboard/styles_1568624722.pack.css" media="all" rel="stylesheet"
+      type="text/css" />
+<script src="https://greenlight.ink/assets/basetheme-design/minDashboard/scripts_1570527752.pack.js"></script>
+
+<!-- Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/jquery.mask.js"></script>
+<script type="javascript" src="js/main.js"></script>
+</body>
+</html>

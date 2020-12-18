@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+    <link href="https://greenlight.ink/assets/css/libs/spectrum/spectrum.css" rel="stylesheet">
+    <link href="css/include_style.css" media="all" rel="stylesheet" type="text/css" />
+
+<!-- ===================== New Style ======================= -->
+    <script src="https://greenlight.ink/assets/basetheme-design/js/jquery/jquery-3.1.1.min.js?v=1.1.7"></script>
+
+    <link href="css/all.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/media.css" media="all" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.spectrum-fi.js"></script>
+    <script type="text/javascript" src="js/spectrum.js"></script>
+    <link href="css/spectrum.css" media="all" rel="stylesheet" type="text/css" />
+
+<!-- ===================== end New Style ======================= -->
+
+
+    <script src="https://greenlight.ink/assets/basetheme-design/js/jquery/plugins/sortable/jquery-ui-sortable.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/bgset/ls.bgset.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <header class="header" id="header">
+        <nav class="header__top-nav" id="headerTopNavAuth">
+            <button class="header__top-btn" id="headerTopBtnAuth" type="button"><span></span><span></span><span></span>
+            </button>
+        </nav>
+        <nav class="header-cabinet" id="cabinet"><span class="cabinet__accaunt" id="cabinet__accaunt-btn"
+                                                       rel="nofollow"></span>
+            <nav class="header__menu header__menu--accaunt" id="accaunt__menu">
+                <ul class="header__menu-list">
+                    <li><a href="https://greenlight.ink/dashboard/personalarea/account">Параметры аккаунта</a></li>
+                    <li><a href="https://greenlight.ink/dashboard/plans">Изменение плана</a></li>
+                    <li><a href="https://greenlight.ink/dashboard/personalarea/promocodes">Промокоды</a></li>
+                    <li><a href="https://greenlight.ink/dashboard/personalarea/referal">Реферальная система</a></li>
+                    <li><a class="alert" href="#" id="logout">Выйти</a></li>
+                </ul>
+            </nav>
+            <span class="cabinet__bell" id="cabinet__notofication-btn" rel="nofollow"><span>22</span></span>
+            <article class="widgets widgets-notice widgets--border unread-notice" id="cabinet__notification">
+                <div class="widgets-open"><a href="https://greenlight.ink/dashboard/studio-list-notification"
+                                             rel="nofollow">Открыть все</a></div>
+                <div class="widgets-info empty-message">
+                    <div class="info-table__body">Новых уведомлений нет</div>
+                </div>
+
+            </article>
+            <nav class="header__menu" id="header__menu">
+                <ul class="header__menu-list">
+                    <li class="header__menu-ttl"><a class="tarif_link" href="https://greenlight.ink/dashboard/plans">Тариф
+                        до: 26.09.20</a></li>
+                    <li class="header__menu-ttl header__cash">
+                    <span class="header__cash-wrap">На счету:
+                        <span class="header__cash-value" id="header__cash-value"> 0 руб.</span>
+                        <span class="header__cash-btn btn" id="withdrawalOffunds" rel="nofollow">Вывести средства</span>
+                    </span>
+                    </li>
+                    <li class="header__menu-ttl"><span>Фото</span>
+                        <ul>
+                            <li><a class="active" href="https://greenlight.ink/dashboard/galleries">Галереи</a></li>
+                            <li><a class="active" href="https://greenlight.ink/dashboard/watermarks">Водяной знак</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__menu-ttl"><span>Студия</span>
+                        <ul>
+                            <li><a href="https://greenlight.ink/dashboard/contacts">Контакты</a></li>
+                            <li><a href="https://greenlight.ink/dashboard/studio-list-orders">Заказы студии</a></li>
+                            <li><a href="https://greenlight.ink/dashboard/studioSettings">Настройки студии</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a class="cabinet__logo gr" href="https://greenlight.ink/dashboard" rel="nofollow">Pavel Veter<span
+                    class="cabinet__logo-ico"
+                    style="background-image: url(https://api.eric.s3storage.ru/greenlight-bucket/userfiles/21/logo/veter.png?AWSAccessKeyId=00ca2066d7d0b3972460&amp;Expires=1652625761&amp;Signature=UsDF0g5C58Yt7AWk6kvCg6lxWxQ%3D); background-size: cover; background-repeat: no-repeat; background-position: center;"></span><span>greenlight.ink</span></a>
+        </nav>
+
+        <div class="modal modal--transparent" id="withdrawalOffundsPopup">
+            <div class="popup popup--center active"><a class="close close--small" href="#" id="closeCreatePromoCodePupup"
+                                                       rel="nofollow"></a>
+                <h2>Вывод средств</h2>
+                <form id="withdrawalForm">
+                    <div class="form-group">
+                        <input class="form-control" id="withdrawalOffundsInput" name="value" placeholder="Сумма"
+                               type="text">
+                    </div>
+                    <button class="btn" name="btn" type="submit">ОК</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================= NEW Markup ============================== -->
+
+    <div class="container">
+        <div class="heading-wrap">
+            <div class="heading heading--setting-page">
+                <div class="heading__ttl heading__ttl--col heading--space">
+                    <a href="#" class="back-link">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.5">
+                                <path d="M17 20L12 15.0005L17 10" stroke="#5FC8D3" stroke-width="2"/>
+                                <circle cx="15" cy="15" r="14" stroke="#5FC8D3" stroke-width="2"/>
+                            </g>
+                        </svg>
+                        <span>Добавить шаблон</span>
+                    </a>
+                </div>
+                <div class="heading__buttons"><a class="btn btn--small form-submit-btn">Сохранить</a><a href="#" class="btn btn--small btn--transparent btn--grey">Отменить</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="#" class="mail-send">
+                    <div class="head">
+                        <div class="form-group">
+                                <label class="control-label">Название шаблона</label>
+                                <input type="text" class="form-control" value="Галерея для Вадима и Нади загружена" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Тип шаблона</label>
+                            <select class="form-control">
+                                <option value="">Галерея загружена</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Тема письма</label>
+                        <div class="addon">
+                            <input type="text" class="form-control" value="Галерея для Вадима и Нади загружена" />
+                            <span class="btn-code">
+                                <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.864 2.24H4.128C3.88267 2.24 3.67467 2.32533 3.504 2.496C3.33333 2.656 3.248 2.864 3.248 3.12V6.432C3.248 6.60267 3.216 6.768 3.152 6.928C3.07733 7.09867 2.99733 7.232 2.912 7.328C2.82667 7.44533 2.72 7.55733 2.592 7.664C2.47467 7.76 2.36267 7.84 2.256 7.904C2.36267 7.968 2.47467 8.048 2.592 8.144C2.70933 8.24 2.816 8.34667 2.912 8.464C2.99733 8.58133 3.07733 8.72 3.152 8.88C3.216 9.04 3.248 9.21067 3.248 9.392V12.864C3.248 13.1093 3.33333 13.312 3.504 13.472C3.67467 13.6427 3.88267 13.728 4.128 13.728H4.688V15.296H3.76C3.49333 15.296 3.22667 15.2427 2.96 15.136C2.69333 15.0187 2.46933 14.8693 2.288 14.688C2.10667 14.528 1.95733 14.3093 1.84 14.032C1.73333 13.7653 1.68 13.4987 1.68 13.232V10.032C1.68 9.73333 1.63733 9.504 1.552 9.344C1.46667 9.152 1.34933 9.01333 1.2 8.928C1.06133 8.832 0.890667 8.768 0.688 8.736C0.474667 8.704 0.266667 8.688 0.064 8.688V7.12C0.266667 7.12 0.474667 7.104 0.688 7.072C0.890667 7.04 1.06133 6.976 1.2 6.88C1.36 6.784 1.47733 6.65067 1.552 6.48C1.63733 6.32 1.68 6.08533 1.68 5.776V2.752C1.68 2.60267 1.69067 2.464 1.712 2.336C1.744 2.19733 1.78667 2.064 1.84 1.936C1.95733 1.68 2.10667 1.46133 2.288 1.28C2.50133 1.06667 2.72533 0.917333 2.96 0.832C3.184 0.725333 3.45067 0.672 3.76 0.672H4.864V2.24ZM13.3571 12V2.56H8.22113V12H6.41313V0.879999H15.1651V12H13.3571ZM16.7166 0.672H17.8206C18.13 0.672 18.3966 0.725333 18.6206 0.832C18.8553 0.917333 19.0793 1.06667 19.2926 1.28C19.474 1.46133 19.6233 1.68 19.7406 1.936C19.794 2.064 19.8313 2.19733 19.8526 2.336C19.8846 2.464 19.9006 2.60267 19.9006 2.752V5.776C19.9006 6.08533 19.9433 6.32 20.0286 6.48C20.1033 6.65067 20.2206 6.784 20.3806 6.88C20.5193 6.976 20.69 7.04 20.8926 7.072C21.0953 7.104 21.3033 7.12 21.5166 7.12V8.688C21.3033 8.688 21.0953 8.704 20.8926 8.736C20.69 8.768 20.5193 8.832 20.3806 8.928C20.2313 9.01333 20.114 9.152 20.0286 9.344C19.9433 9.504 19.9006 9.73333 19.9006 10.032V13.232C19.9006 13.4987 19.8473 13.7653 19.7406 14.032C19.6233 14.3093 19.474 14.528 19.2926 14.688C19.1113 14.8693 18.8873 15.0187 18.6206 15.136C18.354 15.2427 18.0873 15.296 17.8206 15.296H16.8926V13.728H17.4526C17.698 13.728 17.906 13.6427 18.0766 13.472C18.2473 13.312 18.3326 13.1093 18.3326 12.864V9.392C18.3326 9.21067 18.3646 9.04 18.4286 8.88C18.5033 8.72 18.5833 8.58133 18.6686 8.464C18.7646 8.34667 18.8713 8.24 18.9886 8.144C19.0953 8.048 19.2073 7.968 19.3246 7.904C19.2073 7.84 19.0953 7.76 18.9886 7.664C18.8606 7.55733 18.754 7.44533 18.6686 7.328C18.5833 7.232 18.5033 7.09867 18.4286 6.928C18.3646 6.768 18.3326 6.60267 18.3326 6.432V3.12C18.3326 2.864 18.2473 2.656 18.0766 2.496C17.906 2.32533 17.698 2.24 17.4526 2.24H16.7166V0.672Z" fill="#5FC8D3"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Заголовок</label>
+                        <div class="addon addon-code">
+                            <span class="code-input">{название_галереи} </span>
+                            <input type="text" class="form-control" value="готова к просмотру" />
+                            <span class="btn-code">
+                                <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.864 2.24H4.128C3.88267 2.24 3.67467 2.32533 3.504 2.496C3.33333 2.656 3.248 2.864 3.248 3.12V6.432C3.248 6.60267 3.216 6.768 3.152 6.928C3.07733 7.09867 2.99733 7.232 2.912 7.328C2.82667 7.44533 2.72 7.55733 2.592 7.664C2.47467 7.76 2.36267 7.84 2.256 7.904C2.36267 7.968 2.47467 8.048 2.592 8.144C2.70933 8.24 2.816 8.34667 2.912 8.464C2.99733 8.58133 3.07733 8.72 3.152 8.88C3.216 9.04 3.248 9.21067 3.248 9.392V12.864C3.248 13.1093 3.33333 13.312 3.504 13.472C3.67467 13.6427 3.88267 13.728 4.128 13.728H4.688V15.296H3.76C3.49333 15.296 3.22667 15.2427 2.96 15.136C2.69333 15.0187 2.46933 14.8693 2.288 14.688C2.10667 14.528 1.95733 14.3093 1.84 14.032C1.73333 13.7653 1.68 13.4987 1.68 13.232V10.032C1.68 9.73333 1.63733 9.504 1.552 9.344C1.46667 9.152 1.34933 9.01333 1.2 8.928C1.06133 8.832 0.890667 8.768 0.688 8.736C0.474667 8.704 0.266667 8.688 0.064 8.688V7.12C0.266667 7.12 0.474667 7.104 0.688 7.072C0.890667 7.04 1.06133 6.976 1.2 6.88C1.36 6.784 1.47733 6.65067 1.552 6.48C1.63733 6.32 1.68 6.08533 1.68 5.776V2.752C1.68 2.60267 1.69067 2.464 1.712 2.336C1.744 2.19733 1.78667 2.064 1.84 1.936C1.95733 1.68 2.10667 1.46133 2.288 1.28C2.50133 1.06667 2.72533 0.917333 2.96 0.832C3.184 0.725333 3.45067 0.672 3.76 0.672H4.864V2.24ZM13.3571 12V2.56H8.22113V12H6.41313V0.879999H15.1651V12H13.3571ZM16.7166 0.672H17.8206C18.13 0.672 18.3966 0.725333 18.6206 0.832C18.8553 0.917333 19.0793 1.06667 19.2926 1.28C19.474 1.46133 19.6233 1.68 19.7406 1.936C19.794 2.064 19.8313 2.19733 19.8526 2.336C19.8846 2.464 19.9006 2.60267 19.9006 2.752V5.776C19.9006 6.08533 19.9433 6.32 20.0286 6.48C20.1033 6.65067 20.2206 6.784 20.3806 6.88C20.5193 6.976 20.69 7.04 20.8926 7.072C21.0953 7.104 21.3033 7.12 21.5166 7.12V8.688C21.3033 8.688 21.0953 8.704 20.8926 8.736C20.69 8.768 20.5193 8.832 20.3806 8.928C20.2313 9.01333 20.114 9.152 20.0286 9.344C19.9433 9.504 19.9006 9.73333 19.9006 10.032V13.232C19.9006 13.4987 19.8473 13.7653 19.7406 14.032C19.6233 14.3093 19.474 14.528 19.2926 14.688C19.1113 14.8693 18.8873 15.0187 18.6206 15.136C18.354 15.2427 18.0873 15.296 17.8206 15.296H16.8926V13.728H17.4526C17.698 13.728 17.906 13.6427 18.0766 13.472C18.2473 13.312 18.3326 13.1093 18.3326 12.864V9.392C18.3326 9.21067 18.3646 9.04 18.4286 8.88C18.5033 8.72 18.5833 8.58133 18.6686 8.464C18.7646 8.34667 18.8713 8.24 18.9886 8.144C19.0953 8.048 19.2073 7.968 19.3246 7.904C19.2073 7.84 19.0953 7.76 18.9886 7.664C18.8606 7.55733 18.754 7.44533 18.6686 7.328C18.5833 7.232 18.5033 7.09867 18.4286 6.928C18.3646 6.768 18.3326 6.60267 18.3326 6.432V3.12C18.3326 2.864 18.2473 2.656 18.0766 2.496C17.906 2.32533 17.698 2.24 17.4526 2.24H16.7166V0.672Z" fill="#5FC8D3"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Текст кнопки</label>
+                        <p>Нажатие на кнопке откроет галерею</p>
+                        <input type="text" class="form-control" value="Смотреть галерею" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Текст письма</label>
+                        <div class="addon addon-text">
+                            <div class="flex panel-text">
+                                <svg width="214" height="15" viewBox="0 0 214 15" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect opacity="0.5" width="214" height="15" fill="url(#pattern0)"/>
+                                    <defs>
+                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                            <use xlink:href="#image0" transform="scale(0.0046729 0.0666667)"/>
+                                        </pattern>
+                                        <image id="image0" width="214" height="15" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANYAAAAPCAYAAACY0jHJAAAD+UlEQVRoge2aO0grQRSGTzYbQSIRIr6wSBAbBRuttFEQjKIYRKwDWqgEUVurICJoEfBRqIWNCCIoWBkRwcpCUFDxVaUTI4KFiGge53KGO2HvksTk3p1d4c4Hw57ZbPb8e+axMyexISKCRCIxFEWGUyIxnh89sJLJJCQSiR+gRCIpDMXhcIDNZgNFUcDtdsPo6Ci8vb1ZEsa9vT2mhRdVVaG+vt5UDRSPwcHBdD0QCDAtn5+fpuqwCtoZpFIpduQ2L9q63jYauq8WrS8zdejJ5V9bV+it0NHRAdvb2zA8PAxra2uwurpqSbOWl5fD7OwslJWVgdPphLm5OQiFQqZqoDckxYTDG5gmHtE8Pz9DMBgEr9cLLpeL2Ryy6ZzH42E2XSsCek673c6O3OZFW9fbRkP3pQkNfndmrS8zdSwsLEAkEmE2GzA5/GvrTPf4+DjlMPD9/Z2GPE5NTaFVJBIJdDgc2NfXZ4kCen6/35+uBwIBdi4ejwv1+/T0hBUVFagoCnZ1daHP58OioqL05xQTOtfe3s70VFZWsu8Yjc1mYxroqLdzFaPhfjm5fNO1+uuN4ubmBiORCLtbKpX6Ni5ci0qzwuXlJaysrLAjjbb+/n7hs3M2otEoxONxaG5utkyDdknBZ01+FAW9qT8+Pv54W2r5+vpK1y4uLqClpYV9Z3l52VBF+iWYVejjYJWuw8ND1id9Ph/rA/nqUKkTnZ6ewv39Pby8vEB3dzfU1NQIF5yN29tb9kljY6PpvvmAyrRWFz2wDg4OYHJyMqdPrqupqQkmJiZgd3fX8IGVz3PS5Cs6qaRdBuarC7K03b8wNDSUcaL9DrYoHRkZgVgsBq+vr3B9fQ1jY2OGiiuEq6srdnVDQ4PpvilotLejNweHbFHrdy2ZZkJtI2ZqUKt+ghQ9yfwkKMbFxcUFK2K9hW+2aHNMHfrs7MyyRzs/P2fZwNraWkv8+/1+OD4+hnA4DIuLi7CzswM9PT3C/ZIP8qdFnwXjUIyWlpagt7fXcB3cX65CS3XRcP+F6BIx0RwdHcH09PRf6cDOzk7c2trC+fl5tgFra2sTulHPxObmJoZCIXQ6neh2u3FmZgZPTk5M1/H4+IgDAwOoqira7XaWRIlGo8L9xmIxrKqqYvGnJAW1CWngkE3nqG2ozaqrq4UkL+jemUoymTTc13c6eDKCkgbZdOmL0Tw8PODGxkbBOkBbKSkpYRmxu7s7U4NI1NXVpTMrXM/+/r7pOqyEBkowGESv14ulpaXM5pDtcrnQ4/EwmwaiCLJ1FMrWmgn3y7FqYLW2tuL6+nrBOnh+8r9aN2eD1tK5fgimTJWMkyQf5J9wJRIByD/hSiRGAwC/AKQXCBdpXJ+kAAAAAElFTkSuQmCC"/>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <span class="btn-code">
+                                <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.864 2.24H4.128C3.88267 2.24 3.67467 2.32533 3.504 2.496C3.33333 2.656 3.248 2.864 3.248 3.12V6.432C3.248 6.60267 3.216 6.768 3.152 6.928C3.07733 7.09867 2.99733 7.232 2.912 7.328C2.82667 7.44533 2.72 7.55733 2.592 7.664C2.47467 7.76 2.36267 7.84 2.256 7.904C2.36267 7.968 2.47467 8.048 2.592 8.144C2.70933 8.24 2.816 8.34667 2.912 8.464C2.99733 8.58133 3.07733 8.72 3.152 8.88C3.216 9.04 3.248 9.21067 3.248 9.392V12.864C3.248 13.1093 3.33333 13.312 3.504 13.472C3.67467 13.6427 3.88267 13.728 4.128 13.728H4.688V15.296H3.76C3.49333 15.296 3.22667 15.2427 2.96 15.136C2.69333 15.0187 2.46933 14.8693 2.288 14.688C2.10667 14.528 1.95733 14.3093 1.84 14.032C1.73333 13.7653 1.68 13.4987 1.68 13.232V10.032C1.68 9.73333 1.63733 9.504 1.552 9.344C1.46667 9.152 1.34933 9.01333 1.2 8.928C1.06133 8.832 0.890667 8.768 0.688 8.736C0.474667 8.704 0.266667 8.688 0.064 8.688V7.12C0.266667 7.12 0.474667 7.104 0.688 7.072C0.890667 7.04 1.06133 6.976 1.2 6.88C1.36 6.784 1.47733 6.65067 1.552 6.48C1.63733 6.32 1.68 6.08533 1.68 5.776V2.752C1.68 2.60267 1.69067 2.464 1.712 2.336C1.744 2.19733 1.78667 2.064 1.84 1.936C1.95733 1.68 2.10667 1.46133 2.288 1.28C2.50133 1.06667 2.72533 0.917333 2.96 0.832C3.184 0.725333 3.45067 0.672 3.76 0.672H4.864V2.24ZM13.3571 12V2.56H8.22113V12H6.41313V0.879999H15.1651V12H13.3571ZM16.7166 0.672H17.8206C18.13 0.672 18.3966 0.725333 18.6206 0.832C18.8553 0.917333 19.0793 1.06667 19.2926 1.28C19.474 1.46133 19.6233 1.68 19.7406 1.936C19.794 2.064 19.8313 2.19733 19.8526 2.336C19.8846 2.464 19.9006 2.60267 19.9006 2.752V5.776C19.9006 6.08533 19.9433 6.32 20.0286 6.48C20.1033 6.65067 20.2206 6.784 20.3806 6.88C20.5193 6.976 20.69 7.04 20.8926 7.072C21.0953 7.104 21.3033 7.12 21.5166 7.12V8.688C21.3033 8.688 21.0953 8.704 20.8926 8.736C20.69 8.768 20.5193 8.832 20.3806 8.928C20.2313 9.01333 20.114 9.152 20.0286 9.344C19.9433 9.504 19.9006 9.73333 19.9006 10.032V13.232C19.9006 13.4987 19.8473 13.7653 19.7406 14.032C19.6233 14.3093 19.474 14.528 19.2926 14.688C19.1113 14.8693 18.8873 15.0187 18.6206 15.136C18.354 15.2427 18.0873 15.296 17.8206 15.296H16.8926V13.728H17.4526C17.698 13.728 17.906 13.6427 18.0766 13.472C18.2473 13.312 18.3326 13.1093 18.3326 12.864V9.392C18.3326 9.21067 18.3646 9.04 18.4286 8.88C18.5033 8.72 18.5833 8.58133 18.6686 8.464C18.7646 8.34667 18.8713 8.24 18.9886 8.144C19.0953 8.048 19.2073 7.968 19.3246 7.904C19.2073 7.84 19.0953 7.76 18.9886 7.664C18.8606 7.55733 18.754 7.44533 18.6686 7.328C18.5833 7.232 18.5033 7.09867 18.4286 6.928C18.3646 6.768 18.3326 6.60267 18.3326 6.432V3.12C18.3326 2.864 18.2473 2.656 18.0766 2.496C17.906 2.32533 17.698 2.24 17.4526 2.24H16.7166V0.672Z" fill="#5FC8D3"/>
+                                </svg>
+                            </span>
+                            <div class="textarea">
+                                <p><strong>Здравствуйте Вадим и Надя!</strong></p>
+                                <p>Ваша галерея готова для просмотра.</p>
+                                <p>Используйте следующий пароль для доступа к вашим фотографиям: <span class="code-input">{галерея.пароль_клиента}</span></p>
+                                <p>Срок действия этой галереи истекает <span class="code-input">{галерея.срок}</span></p>
+                                <p>С уважением, <span class="code-input">{студия.название}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7 preview-box">
+                <div class="preview-mail">
+                        <div class="img">
+                            <img src="images/img-03.png" alt="">
+                        </div>
+                        <div class="head">
+                            <h2 class="title">Вадим и Надя, ваша галерея готова</h2>
+                            <p>История Любви готова к просмотру</p>
+                            <a href="#" class="btn-mail">Смотреть галерею</a>
+                        </div>
+                        <div class="body">
+                            <p><strong>Здравствуйте Вадим и Надя!</strong></p>
+                            <p>Ваша галерея готова для просмотра.</p>
+                            <p>Используйте следующий пароль для доступа к вашим фотографиям: <strong>vadim_nadya_102019</strong></p>
+                            <p>Срок действия этой галереи истекает <strong>10 декабря 2019</strong></p>
+                            <p>С уважением, <strong>Алекс</strong></p>
+                        </div>
+                </div>
+                <div class="footer-mail">
+                    <p>Все права защищены &copy; 2019 Алекс</p>
+                    <a href="#">Отписаться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================= end NEW Markup ============================== -->
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="cpr">
+                <div class="cpr__dt"><span>© 2016 - 2019. <span class="gr">Greenlight</span> </span>  Персональный сервис для фотографов</div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/jquery.mask.js"></script>
+<script type="javascript" src="js/main.js"></script>
+<link href="https://greenlight.ink/assets/basetheme-design/minDashboard/styles_1598529912.pack.css" rel="stylesheet" type="text/css">
+<script src="js/scripts.js"></script>
+</body>
+</html>
